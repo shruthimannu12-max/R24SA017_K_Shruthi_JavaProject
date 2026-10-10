@@ -1,0 +1,36 @@
+UML CLASS DIAGRAM (text)
+
+                    <<abstract>>
+                       Person
+              -------------------------
+              - id : int
+              - name : String
+              - phone : String
+              - gender : Gender
+              -------------------------
+              + getRole() : String {abstract}
+              + displayBasicInfo()
+                       ^
+                       |
+             ---------------------
+             |                   |
+        Customer          DeliveryPartner
+        implements         implements
+       Discountable            Payable
+
+        Discountable <<interface>>       Payable <<interface>>
+                 ^                              ^
+                 |                              |
+             Customer                    DeliveryPartner
+
+             FoodOrderingService
+                    |
+                    | contains
+                    v
+                FoodItem[]
+
+                 Order
+              /                    Customer      FoodItem[]
+             |
+             v
+        Discountable
